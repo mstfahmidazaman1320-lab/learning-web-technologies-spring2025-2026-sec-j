@@ -91,6 +91,61 @@ checkWinner();
 
 });
 
+function checkWinner(){
+
+for(let pattern of winPatterns){
+
+let a=cells[pattern[0]].textContent;
+let b=cells[pattern[1]].textContent;
+let c=cells[pattern[2]].textContent;
+
+if(a!=="" && a===b && b===c){
+
+status.textContent="Player "+currentPlayer+" Wins!";
+gameActive=false;
+
+cells[pattern[0]].classList.add("winner");
+cells[pattern[1]].classList.add("winner");
+cells[pattern[2]].classList.add("winner");
+
+return;
+}
+
+}
+
+let draw=true;
+
+cells.forEach(cell=>{
+if(cell.textContent===""){
+draw=false;
+}
+});
+
+if(draw){
+status.textContent="It's a Draw!";
+gameActive=false;
+return;
+}
+
+currentPlayer = currentPlayer==="X" ? "O" : "X";
+
+status.textContent="Player "+currentPlayer+" Turn";
+
+}
+
+function resetGame(){
+
+cells.forEach(cell=>{
+cell.textContent="";
+cell.classList.remove("winner");
+});
+
+currentPlayer="X";
+gameActive=true;
+
+status.textContent="Player X Turn";
+
+}
 
 </script>
 
