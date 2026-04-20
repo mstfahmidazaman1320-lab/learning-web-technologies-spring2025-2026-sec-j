@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background-color:white;
+  font-family: Arial, sans-serif;
+}
+
+.calculator{
+  width:220px;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  background-color:grey;
+}
+
+#display{
+  width:100%;
+  height:50px;
+  font-size:20px;
+  text-align:right;
+  margin-bottom:10px;
+  padding-right:10px;
+  border-radius:5px;
+  border:1px solid ;
+}
+
+button{
+  width:45px;
+  height:45px;
+  margin:5px;
+  font-size:18px;
+  border-radius:5px;
+  border:none;
+  border:1px solid black;
+  cursor:pointer;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,50px);
+  justify-content:center;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+var calculator = document.createElement("div");
+calculator.className = "calculator";
+
+var display = document.createElement("input");
+display.type = "text";
+display.readOnly = true;
+display.id = "display";
+calculator.appendChild(display);
+
+document.body.appendChild(calculator);
+
+var firstNumber = "";
+var secondNumber = "";
+var operator = "";
+
+ var expression = ""; 
+
+function addNumber(num){
+  expression += num;
+  display.value = expression;
+}
+
+function setOperator(op){
+  expression += op;
+  display.value = expression;
+}
+
+function calculate(){
+  try{
+    display.value = eval(expression); 
+    expression = display.value; 
+  } catch(e){
+    display.value = "Error";
+    expression = "";
+  }
+}
+
+function clearDisplay(){
+  expression = "";
+  display.value = "";
+}
+
+ 
+function Button(text, action){
+  var btn = document.createElement("button");
+  btn.innerHTML = text;
+  btn.onclick = action;
+  calculator.appendChild(btn);
+}
+
+
+Button("7", function(){addNumber("7");});
+Button("8", function(){addNumber("8");});
+Button("9", function(){addNumber("9");});
+Button("/", function(){setOperator("/");});
+
+Button("4", function(){addNumber("4");});
+Button("5", function(){addNumber("5");});
+Button("6", function(){addNumber("6");});
+Button("*", function(){setOperator("*");});
+
+Button("1", function(){addNumber("1");});
+Button("2", function(){addNumber("2");});
+Button("3", function(){addNumber("3");});
+Button("-", function(){setOperator("-");});
+
+Button("0", function(){addNumber("0");});
+Button("C", clearDisplay);
+Button("=", calculate);
+Button("+", function(){setOperator("+");});
+
+</script>
+
+</body>
+</html>

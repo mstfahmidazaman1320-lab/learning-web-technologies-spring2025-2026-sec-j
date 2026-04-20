@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Picture Form</title>
+</head>
+<body>
+
+<form id="profileForm">
+    <fieldset style="width:300px;">
+        <legend>Profile Picture</legend>
+
+        <label>User Id</label><br>
+        <input type="text" id="userId"><br><br>
+
+        <label>Picture</label><br>
+        <input type="file" id="picture"><br><br>
+
+        <div id="error" style="color:red;"></div>
+        <br>
+
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>
+
+<script>
+
+document.getElementById("profileForm").addEventListener("submit", function(event){
+
+    var userId = document.getElementById("userId").value;
+    var picture = document.getElementById("picture").value;
+    var error = document.getElementById("error");
+
+    
+    if(userId == ""){
+        error.innerHTML = "User Id cannot be empty";
+        event.preventDefault();
+        return;
+    }
+
+    
+    if(isNaN(userId) || Number(userId) <= 0){
+        error.innerHTML = "User Id must be a positive number";
+        event.preventDefault();
+        return;
+    }
+
+    
+    if(picture == ""){
+        error.innerHTML = "Please select a picture";
+        event.preventDefault();
+        return;
+    }
+
+    error.innerHTML = "";
+    alert("Form submitted successfully!");
+
+});
+
+</script>
+
+</body>
+</html>

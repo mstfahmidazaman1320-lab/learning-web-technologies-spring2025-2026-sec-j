@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Validation</title>
+</head>
+<body>
+
+<h2>Name Form</h2>
+
+<form id="myForm">
+    Name:<br>
+    <input type="text" id="name">
+    <br><br>
+
+    <!-- Error message show হবে এখানে -->
+    <div id="error" style="color:red;"></div>
+    <br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+
+document.getElementById("myForm").addEventListener("submit", function(event) {
+
+    var name = document.getElementById("name").value;
+    var error = document.getElementById("error");
+
+    // Empty check
+    if (name == "") {
+        error.innerHTML = "Name cannot be empty";
+        event.preventDefault();
+        return;
+    }
+
+    // Must start with letter
+    var firstChar = name.charAt(0);
+    if (!isNaN(firstChar)) {
+        error.innerHTML = "Name must start with a letter";
+        event.preventDefault();
+        return;
+    }
+
+    // At least two words
+    var parts = name.split(" ");
+    if (parts.length < 2) {
+        error.innerHTML = "Enter at least two words";
+        event.preventDefault();
+        return;
+    }
+
+    // If everything is okay
+    error.innerHTML = "";
+    alert("Valid Name!");
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOB Validation</title>
+</head>
+<body>
+
+<h2>Date of Birth</h2>
+
+<form id="dobForm">
+
+    DD <input type="text" id="dd" size="2"> /
+    MM <input type="text" id="mm" size="2"> /
+    YYYY <input type="text" id="yyyy" size="4">
+
+    <br><br>
+    <div id="error" style="color:red;"></div>
+    <br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script>
+
+document.getElementById("dobForm").addEventListener("submit", function(event){
+
+    var dd = document.getElementById("dd").value;
+    var mm = document.getElementById("mm").value;
+    var yyyy = document.getElementById("yyyy").value;
+    var error = document.getElementById("error");
+
+    // Empty check
+    if(dd=="" || mm=="" || yyyy==""){
+        error.innerHTML = "All fields are required";
+        event.preventDefault();
+        return;
+    }
+
+    dd = Number(dd);
+    mm = Number(mm);
+    yyyy = Number(yyyy);
+
+    // Basic range check
+    if(dd < 1 || dd > 31){
+        error.innerHTML = "Day must be 1-31";
+        event.preventDefault();
+        return;
+    }
+
+    if(mm < 1 || mm > 12){
+        error.innerHTML = "Month must be 1-12";
+        event.preventDefault();
+        return;
+    }
+
+    if(yyyy < 1900 || yyyy > 2016){
+        error.innerHTML = "Year must be 1900-2016";
+        event.preventDefault();
+        return;
+    }
+
+    error.innerHTML = "";
+    alert("Valid Date of Birth!");
+
+});
+
+</script>
+
+</body>
+</html>
