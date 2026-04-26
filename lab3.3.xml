@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+
+	<employee1>
+		<id>1</id>
+		<name>
+			<firstname>John</firstname>
+			<lastname>Doe</lastname>
+		</name>
+		<address>
+			<house>H# 38</house>
+			<Road>R# 3</Road>
+			<area>Banani</area>
+			<city>Dhaka</city>
+		</address>
+		
+		<department>Sales</department>
+		<salary>$20000</salary>
+	</employee1>
+
+	<employee2>
+		<id>2</id>
+
+		<name>
+			<firstname>Mark</firstname>
+			<lastname>Zuckerberg</lastname>
+		</name>
+		<address>
+			<Flat>Flat# A/1</Flat>
+			<house>H# 20</house>
+			<Road>R# 18</Road>
+			<area>Mirpur</area>
+			<city>Dhaka</city>
+		</address>
+		
+		<department>Accounts</department>
+		<salary>$12000</salary>
+	</employee2>
+
+	<employee3>
+		<id>3</id>
+
+
+		name>
+		<firstname>Ala </firstname>
+		<lastname> Voski</lastname>
+		</name>
+		<address>
+			
+			<house>H# 38</house>
+			<Road>R# 3</Road>
+			<area>Motijheel</area>
+			<city>Dhaka</city>
+		</address>
+		
+		<department>Human Resource</department>
+		<salary>$30000</salary>
+	</employee3>
+
+</employees>
